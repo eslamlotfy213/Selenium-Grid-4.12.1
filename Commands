@@ -1,0 +1,14 @@
+link > http://192.168.1.3:4444/
+
+java -jar selenium-server-4.12.1.jar hub
+or
+java -jar selenium-server-4.12.1.jar hub --port 4444
+
+
+
+java -jar selenium-server-4.12.1.jar node --detect-drivers true
+or
+java -jar selenium-server-4.12.1.jar node --selenium-manager true
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" parallel="tests" thread-count="5">
+
+    <test name="SelenuimGridchrome" >
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="Url" value="http://192.168.1.3:4444"></parameter>
+        <classes>
+            <class name="OpenAmazonPage" />
+        </classes>
+    </test>
+
+
+    <test name="SelenuimGridfirefox" >
+        <parameter name="browserName" value="firefox"></parameter>
+        <parameter name="Url" value="http://192.168.1.3:4444"></parameter>
+        <classes>
+            <class name="OpenGooglePage" />
+        </classes>
+    </test>
+
+</suite>
