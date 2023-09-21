@@ -5,10 +5,17 @@ or
 java -jar selenium-server-4.12.1.jar hub --port 4444
 
 
-
+--------------Hub & node concept----------------------------------------------------------
 java -jar selenium-server-4.12.1.jar node --detect-drivers true
 or
 java -jar selenium-server-4.12.1.jar node --selenium-manager true
 
 
+
+
+-------------standalone concept-----------------------------------------
+to run standalone
+pre:
+add drivers inside with selenuim-server
+java -jar selenium-server-4.12.1.jar standalone
 

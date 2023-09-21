@@ -13,24 +13,37 @@ public class OpenGooglePage {
       private static  String nodeUrl;
 
 
-    @Parameters({"browserName","Url"})
-    @Test
-    public void  Homepagecheck(String browserName , String Url) throws MalformedURLException {
 
+    @Parameters({"browserName","Url"})
+    @BeforeTest
+    public void setDriver(@Optional String browserName ,@Optional String Url) throws MalformedURLException {
         nodeUrl=Url;
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName(browserName);
-        capabilities.setPlatform(Platform.WIN10);
-        driver = new RemoteWebDriver(new URL(nodeUrl),capabilities);
 
+        if (browserName.equalsIgnoreCase("chrome")){
+            capabilities.setBrowserName("chrome");
+            capabilities.setPlatform(Platform.WIN10);
+        }else if (browserName.equalsIgnoreCase("firefox")) {
+            capabilities.setBrowserName("firefox");
+            capabilities.setPlatform(Platform.WIN10);
+        }
+
+        driver = new RemoteWebDriver(new URL(nodeUrl),capabilities);
         System.out.println("thread: "+ Thread.currentThread().getId());
+
+
+    }
+
+    @Test
+    public void  Homepagecheck() {
+
         driver.manage().deleteAllCookies();
         driver.manage().window().minimize();
         driver.get("https://rahulshettyacademy.com/");
     }
 
 
-    @AfterClass
+    @AfterTest
     public void close(){
 
         driver.close();
